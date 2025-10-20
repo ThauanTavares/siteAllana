@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allana Fitz Fotografia - Capturando Momentos</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Customização do Tailwind para usar suas cores
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-brown': '#8b7355', // Marrom principal
+                        'brand-light': '#f8f6f3', // Fundo claro
+                        'brand-dark': '#4a4a4a',  // Texto escuro
+                        'brand-off-white': '#f1ede8' // Variação do fundo
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="bg-brand-light text-brand-dark">
+    <nav class="bg-white/80 backdrop-blur-sm text-brand-dark fixed w-full top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home">
+                        <img src="images/logoLanaMarrom.png" alt="Logo Allana Fitz Fotografia" class="h-14 w-auto">
+                    </a>
+                </div>
+    
+                <div class="hidden md:flex items-center">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link hover:text-brand-brown px-3 py-2">Home</a>
+                        <a href="#about" class="nav-link hover:text-brand-brown px-3 py-2">Quem Sou</a>
+                        <a href="#services" class="nav-link hover:text-brand-brown px-3 py-2">Portfólio</a>
+                        <a href="#contact" class="nav-link hover:text-brand-brown px-3 py-2">Contato</a>
+                        <a href="#feedback" class="nav-link hover:text-brand-brown px-3 py-2">Feedback</a>
+                    </div>
+                    <div class="flex items-center space-x-5 pl-8 border-l border-gray-200 ml-8">
+                        <a href="#" target="_blank" title="Instagram" class="text-brand-dark hover:text-brand-brown transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.153 2.153c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.153 2.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.153-2.153c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.153-2.153c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.147 0-3.882 1.735-3.882 3.882s1.735 3.882 3.882 3.882 3.882-1.735 3.882-3.882-1.735-3.882-3.882-3.882zM12 14a2 2 0 110-4 2 2 0 010 4zm6.406-7.188a.945.945 0 100-1.89.945.945 0 000 1.89z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" target="_blank" title="Facebook" class="text-brand-dark hover:text-brand-brown transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" target="_blank" title="WhatsApp" class="text-brand-dark hover:text-brand-brown transition-colors">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.04 20.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.83-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24S16.58 20.15 12.04 20.15zM16.4 14.4c-.14-.28-.52-.45-.78-.53-.26-.08-1.54-.76-1.78-.84-.24-.08-.42-.12-.59.12-.18.24-.67.84-.83.99-.14.18-.28.18-.53.06-.24-.12-1.04-.38-1.97-1.21-.73-.64-1.21-1.44-1.36-1.68-.14-.24-.02-.38.1-.5.12-.12.24-.28.37-.42.12-.14.18-.24.26-.4.08-.14.04-.28-.02-.4-.06-.12-.59-1.42-.81-1.95-.23-.53-.45-.45-.59-.45-.14 0-.3 0-.45 0-.14 0-.38.06-.58.3-.2.24-.78.76-.78 1.85s.8 2.15.92 2.3c.12.14 1.56 2.4 3.78 3.32.53.22.94.36 1.27.46.53.18 1.02.16 1.41.1.44-.06 1.54-.63 1.75-1.23.22-.6.22-1.12.14-1.23z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-brown">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block hover:text-brand-brown px-3 py-2">Home</a>
+                <a href="#about" class="block hover:text-brand-brown px-3 py-2">Quem Sou</a>
+                <a href="#services" class="block hover:text-brand-brown px-3 py-2">Portfólio</a>
+                <a href="#contact" class="block hover:text-brand-brown px-3 py-2">Contato</a>
+                <a href="#feedback" class="block hover:text-brand-brown px-3 py-2">Feedback</a>
+            </div>
+            <div class="flex justify-center items-center space-x-6 pt-4 pb-4 border-t border-gray-200">
+                <a href="#" target="_blank" title="Instagram" class="text-brand-dark hover:text-brand-brown transition-colors">
+                    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.153 2.153c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.153 2.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.153-2.153c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.153-2.153c.636-.247 1.363-.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.147 0-3.882 1.735-3.882 3.882s1.735 3.882 3.882 3.882 3.882-1.735 3.882-3.882-1.735-3.882-3.882-3.882zM12 14a2 2 0 110-4 2 2 0 010 4zm6.406-7.188a.945.945 0 100-1.89.945.945 0 000 1.89z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="#" target="_blank" title="Facebook" class="text-brand-dark hover:text-brand-brown transition-colors">
+                    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="#" target="_blank" title="WhatsApp" class="text-brand-dark hover:text-brand-brown transition-colors">
+                    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.04 20.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.83-1.26-4.38 0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24S16.58 20.15 12.04 20.15zM16.4 14.4c-.14-.28-.52-.45-.78-.53-.26-.08-1.54-.76-1.78-.84-.24-.08-.42-.12-.59.12-.18.24-.67.84-.83.99-.14.18-.28.18-.53.06-.24-.12-1.04-.38-1.97-1.21-.73-.64-1.21-1.44-1.36-1.68-.14-.24-.02-.38.1-.5.12-.12.24-.28.37-.42.12-.14.18-.24.26-.4.08-.14.04-.28-.02-.4-.06-.12-.59-1.42-.81-1.95-.23-.53-.45-.45-.59-.45-.14 0-.3 0-.45 0-.14 0-.38.06-.58.3-.2.24-.78.76-.78 1.85s.8 2.15.92 2.3c.12.14 1.56 2.4 3.78 3.32.53.22.94.36 1.27.46.53.18 1.02.16 1.41.1.44-.06 1.54-.63 1.75-1.23.22-.6.22-1.12.14-1.23z"/></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="h-screen w-full relative">
+        <div class="swiper h-full w-full">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/carousel/1.jpg" alt="Foto do portfólio 1" class="h-full w-full object-cover"></div>
+                <div class="swiper-slide"><img src="images/carousel/2.jpg" alt="Foto do portfólio 2" class="h-full w-full object-cover"></div>
+                <div class="swiper-slide"><img src="images/carousel/3.jpg" alt="Foto do portfólio 3" class="h-full w-full object-cover"></div>
+                <div class="swiper-slide"><img src="images/carousel/4.jpg" alt="Foto do portfólio 4" class="h-full w-full object-cover"></div>
+                <div class="swiper-slide"><img src="images/carousel/5.jpg" alt="Foto do portfólio 5" class="h-full w-full object-cover"></div>
+                <div class="swiper-slide"><img src="images/carousel/6.jpg" alt="Foto do portfólio 6" class="h-full w-full object-cover"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    
+        <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center z-10 text-center p-4">
+            
+            <h1 class="text-6xl md:text-8xl text-white font-display mb-12">
+                Capturando instantes,<br> criando memórias.
+            </h1>
+    
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#services" class="bg-brand-brown text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-80 transition-colors">
+                    Ver Portfólio
+                </a>
+                <a href="#contact" class="border-2 border-brand-brown text-brand-brown px-8 py-4 rounded-full font-semibold text-lg hover:bg-brand-brown hover:text-white transition-colors">
+                    Fale Comigo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-brand-light py-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+                
+                <div class="text-center md:text-left">
+                    <h2 class="text-5xl md:text-6xl text-brand-brown font-cursive mb-8">
+                        Prazer em conhecê-los!
+                    </h2>
+                    
+                    <h3 class="text-2xl font-bold text-brand-dark tracking-wider mb-2">
+                        EU SOU ALLANA FITZ,
+                    </h3>
+                    
+                    <p class="text-lg text-gray-600 mb-4">
+                        tenho 24 anos, sou casada e curitibana. ♥ <br>
+                        Sou fotógrafa a oito anos. &lt;3
+                    </p>
+                    
+                    <p class="text-2xl text-brand-dark italic mt-8 leading-relaxed">
+                        "Cada cliente é único e especial, amo conhecer e contar histórias através das minhas fotografias."
+                    </p>
+    
+                    <p class="text-2xl text-brand-brown font-semibold mt-4">
+                        Me deixa contar a sua também?! ♥
+                    </p>
+                </div>
+    
+                <div class="flex justify-center">
+                    <div class="p-4 bg-white rounded-md shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                        <img src="images/lana.jpg" alt="Foto de Allana Fitz" class="rounded-md">
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+    </section>
+    <section id="services" class="min-h-screen bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-brand-dark">Meu Portfólio</h2>
+                <div class="w-24 h-1 bg-brand-brown mx-auto mb-8"></div>
+                <p class="text-xl text-gray-500 max-w-3xl mx-auto">
+                    Explore os álbuns e veja como posso eternizar seus momentos mais especiais.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center mb-12 gap-4">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="casamento">Casamentos</button>
+                <button class="filter-btn" data-filter="aniversario">Aniversários</button>
+                <button class="filter-btn" data-filter="gestante">Gestante</button>
+                <button class="filter-btn" data-filter="ensaio_formatura">Ensaio de Formaturas</button>
+                <button class="filter-btn" data-filter="ensaio">Ensaios</button>
+            </div>
+
+            <div id="albumsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </div>
+    </section>
+    
+    
+    <section id="contact" class="min-h-screen bg-white py-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-brand-dark">Vamos conversar?</h2>
+                <div class="w-24 h-1 bg-brand-brown mx-auto mb-8"></div>
+                <p class="text-xl text-gray-500 max-w-3xl mx-auto">
+                    Adoraria saber mais sobre sua história e como posso ajudar a eternizá-la. Preencha o formulário abaixo e vamos dar vida ao seu projeto!
+                </p>
+            </div>
+    
+            <div class="max-w-2xl mx-auto">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-brand-dark mb-2">Seu Nome</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full px-4 py-3 bg-brand-light border-2 border-brand-off-white rounded-lg focus:ring-2 focus:ring-brand-brown focus:border-transparent transition-shadow"
+                               placeholder="Como você se chama?">
+                    </div>
+    
+                    <div>
+                        <label for="event-type" class="block text-lg font-medium text-brand-dark mb-2">Qual o tipo de evento?</label>
+                        <select id="event-type" name="event-type"
+                                class="w-full px-4 py-3 bg-brand-light border-2 border-brand-off-white rounded-lg focus:ring-2 focus:ring-brand-brown focus:border-transparent transition-shadow">
+                            <option>Casamento</option>
+                            <option>15 Anos</option>
+                            <option>Aniversário</option>
+                            <option>Formatura</option>
+                            <option>Ensaio Fotográfico</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+    
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-brand-dark mb-2">Sua Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required
+                                  class="w-full px-4 py-3 bg-brand-light border-2 border-brand-off-white rounded-lg focus:ring-2 focus:ring-brand-brown focus:border-transparent transition-shadow"
+                                  placeholder="Me conte um pouco sobre o que você está planejando..."></textarea>
+                    </div>
+    
+                    <div class="text-center pt-4">
+                        <button type="submit"
+                                class="bg-brand-brown text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-opacity-80 transition-all transform hover:scale-105 shadow-lg">
+                            Enviar Mensagem pelo WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+    
+        </div>
+    </section>
+    <section id="feedback" class="min-h-screen bg-brand-light py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-brand-dark">O que meus clientes dizem</h2>
+                <div class="w-24 h-1 bg-brand-brown mx-auto mb-8"></div>
+                <p class="text-xl text-gray-500 max-w-3xl mx-auto">
+                    O maior presente é ver a alegria e a satisfação nos rostos de quem confia no meu trabalho para registrar seus momentos mais preciosos.
+                </p>
+            </div>
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+                <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <span>★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "A Allana foi incrível! Ela nos deixou super à vontade e as fotos do nosso casamento ficaram simplesmente perfeitas. Cada clique capturou a emoção do momento. Super recomendo!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-brand-off-white rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl">💒</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-brand-dark">Geisse & Luis</h4>
+                            <p class="text-gray-500 text-sm">Casamento</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <span>★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "Contratamos a Allana para o aniversário de 15 anos da nossa filha e o resultado foi um sonho. Ela tem um olhar único e uma sensibilidade ímpar. As fotos ficaram maravilhosas!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-brand-off-white rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl">👑</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-brand-dark">Família Costa</h4>
+                            <p class="text-gray-500 text-sm">Festa de 15 Anos</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="bg-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <span>★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "O ensaio pré-wedding foi uma experiência leve e divertida. A Allana soube captar nossa essência e o resultado foi um álbum lindo, que vamos guardar para sempre."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 bg-brand-off-white rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl">💕</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-brand-dark">Lucas & Maria</h4>
+                            <p class="text-gray-500 text-sm">Ensaio Pré-Wedding</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+    </section>
+
+
+    <footer class="bg-brand-off-white text-brand-dark py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Allana Fitz Fotografia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="galleryModal" class="gallery-modal">
+        <div class="gallery-header">
+            <div id="galleryTitle" class="gallery-title"></div>
+            <div id="closeBtn" class="close-btn">×</div>
+        </div>
+        <div id="galleryGrid" class="gallery-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
