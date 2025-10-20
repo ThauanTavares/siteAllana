@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const albumsData = [
         { category: "casamento", client: "Geisse & Luis", type: "Casamento", photos: 42, folder: "geisse_e_luis", coverPhoto: "FOTOS-7.jpg" },
         { category: "casamento", client: "Marina & Lucas", type: "Casamento", photos: 128, folder: "marina_e_lucas", coverPhoto: "FOTOS-55.jpg" },
-        { category: "gestante", client: "Amanda", type: "Gestante", photos: 25, folder: "amanda_gestante", coverPhoto: "FOTOS-13.jpg" },
-        { category: "gestante", client: "Sara", type: "Gestante", photos: 22, folder: "sara_gestante", coverPhoto: "FOTOS-1.jpg" },
+        { category: "gestante", client: "Amanda", type: "Gestante", photos: 25, folder: "amanda_gestante", coverPhoto: "FOTOS-10.jpg" },
+        { category: "gestante", client: "Sara", type: "Gestante", photos: 22, folder: "sara_gestante", coverPhoto: "FOTOS-2.jpg" },
         { category: "aniversario", client: "Calebe 1 Ano", type: "Aniversário", photos: 67, folder: "calebe_1ano", coverPhoto: "FOTOS-59.jpg" },
         { category: "aniversario", client: "Stella 1 Ano", type: "Aniversário", photos: 46, folder: "stella_1ano", coverPhoto: "FOTOS-32.jpg" },
-        { category: "ensaio_formatura", client: "Luana - Ensaio", type: "Ensaio Formatura", photos: 30, folder: "luana_formatura", coverPhoto: "FOTOS-1.jpg" },
+        { category: "ensaio_formatura", client: "Luana - Ensaio", type: "Ensaio Formatura", photos: 20, folder: "luana_formatura", coverPhoto: "FOTOS-1.jpg" },
         { category: "ensaio", client: "Calebe - 1 Ano", type: "Ensaio Fotográfico", photos: 40, folder: "calebe_ensaio", coverPhoto: "FOTOS-5.jpg" },
-        { category: "ensaio", client: "Lucas & Maria", type: "Ensaio Pré-Wedding", photos: 26, folder: "ensaio_lucas_e_maria", coverPhoto: "FOTOS-1.jpg" },
+        { category: "ensaio", client: "Guiherme & Camyle", type: "Ensaio Pré-Wedding", photos: 20, folder: "ensaio_gui_camyle", coverPhoto: "FOTOS-17.jpg" },
         { category: "casamento", client: "Keth & Samuel", type: "Casamento", photos: 30, folder: "keth_samuel_casamento", coverPhoto: "FOTOS-1.jpg" },
-        { category: "ensaio_formatura", client: "Thauan - Ensaio", type: "Ensaio Formatura", photos: 30, folder: "thauan_formatura", coverPhoto: "FOTOS-1.jpg" },
-        { category: "ensaio_formatura", client: "Gislene - Ensaio", type: "Ensaio Formatura", photos: 30, folder: "gislene_formatura", coverPhoto: "FOTOS-1.jpg" },
+        { category: "ensaio_formatura", client: "Thauan - Ensaio", type: "Ensaio Formatura", photos: 30, folder: "thauan_formatura", coverPhoto: "FOTOS-24.jpg" },
+        { category: "ensaio_formatura", client: "Gislene - Ensaio", type: "Ensaio Formatura", photos: 10, folder: "gislene_formatura", coverPhoto: "FOTOS-7.jpg" },
 
 
         
