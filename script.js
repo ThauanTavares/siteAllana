@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { category: "ensaio_formatura", client: "Luana - Ensaio", type: "Ensaio Formatura", photos: 20, folder: "luana_formatura", coverPhoto: "FOTOS-1.jpg" },
         { category: "ensaio", client: "Calebe - 1 Ano", type: "Ensaio Fotográfico", photos: 40, folder: "calebe_ensaio", coverPhoto: "FOTOS-5.jpg" },
         { category: "ensaio", client: "Guiherme & Camyle", type: "Ensaio Pré-Wedding", photos: 20, folder: "ensaio_gui_camyle", coverPhoto: "FOTOS-17.jpg" },
-        { category: "casamento", client: "Keth & Samuel", type: "Casamento", photos: 30, folder: "keth_samuel_casamento", coverPhoto: "FOTOS-1.jpg" },
+        { category: "casamento", client: "Keth & Samuel", type: "Casamento", photos: 52, folder: "keth_samuel_casamento", coverPhoto: "FOTOS-38.jpg" },
         { category: "ensaio_formatura", client: "Thauan - Ensaio", type: "Ensaio Formatura", photos: 30, folder: "thauan_formatura", coverPhoto: "FOTOS-24.jpg" },
         { category: "ensaio_formatura", client: "Gislene - Ensaio", type: "Ensaio Formatura", photos: 10, folder: "gislene_formatura", coverPhoto: "FOTOS-7.jpg" },
 
