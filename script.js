@@ -14,9 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { category: "casamento", client: "Keth & Samuel", type: "Casamento", photos: 52, folder: "keth_samuel_casamento", coverPhoto: "FOTOS-38.jpg" },
         { category: "ensaio_formatura", client: "Thauan - Ensaio", type: "Ensaio Formatura", photos: 30, folder: "thauan_formatura", coverPhoto: "FOTOS-24.jpg" },
         { category: "ensaio_formatura", client: "Gislene - Ensaio", type: "Ensaio Formatura", photos: 10, folder: "gislene_formatura", coverPhoto: "FOTOS-7.jpg" },
-
-
-        
     ];
 
     const albumsGrid = document.getElementById('albumsGrid');
@@ -25,6 +22,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryGrid = document.getElementById('galleryGrid');
     const closeBtn = document.getElementById('closeBtn');
 
+    // --- CRIAÇÃO DO LIGHTBOX (Visualizador de Tela Cheia) ---
+    // Criamos os elementos HTML via JS para não precisar mexer no index.html
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.innerHTML = `
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Visualização em tela cheia">
+    `;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    function openLightbox(src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        setTimeout(() => { lightboxImg.src = ''; }, 300); // Limpa src após fechar
+    }
+
+    // Fecha o lightbox ao clicar no X ou fora da imagem
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+
+
+    // --- FUNÇÕES DA GALERIA ---
+
     function renderAlbums() {
         if (!albumsGrid) return;
         albumsGrid.innerHTML = '';
@@ -32,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'album-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105';
             card.dataset.client = album.client;
+            
             card.innerHTML = `
                 <div class="relative">
                     <div class="card-cover-container">
@@ -53,12 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!albumData) return;
         galleryTitle.textContent = `${albumData.client} - ${albumData.type}`;
         galleryGrid.innerHTML = '';
+        
         for (let i = 1; i <= albumData.photos; i++) {
             const imgElement = document.createElement('img');
-            imgElement.src = `images/${albumData.folder}/FOTOS-${i}.jpg`;
+            const imgSrc = `images/${albumData.folder}/FOTOS-${i}.jpg`;
+            imgElement.src = imgSrc;
             imgElement.alt = `${albumData.type} - ${albumData.client} - Foto ${i}`;
-            imgElement.className = 'w-full h-full object-cover rounded-lg';
+            
+            // Estilo para Masonry
+            imgElement.className = 'w-full h-auto block rounded-lg'; 
             imgElement.loading = 'lazy';
+
+            // ADICIONADO: Evento de clique para abrir o Lightbox
+            imgElement.addEventListener('click', () => {
+                openLightbox(imgSrc);
+            });
+
             const photoContainer = document.createElement('div');
             photoContainer.className = 'gallery-photo-item';
             photoContainer.appendChild(imgElement);
@@ -76,6 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- FILTROS E MODAL ---
 
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
@@ -99,8 +148,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     closeBtn.addEventListener('click', closeModal);
     galleryModal.addEventListener('click', (e) => { if (e.target === galleryModal) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && galleryModal.style.display === 'block') closeModal(); });
+    document.addEventListener('keydown', (e) => { 
+        // Se lightbox não estiver aberto, fecha o modal da galeria com ESC
+        if (e.key === 'Escape' && galleryModal.style.display === 'block' && !lightbox.classList.contains('active')) {
+            closeModal();
+        }
+    });
 
+    // --- MENU MOBILE E NAV ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
@@ -132,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderAlbums();
 
+    // --- FORMULÁRIO ---
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
@@ -146,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- SWIPER ---
     const swiper = new Swiper('.swiper', {
         loop: true,
         autoplay: {
@@ -170,9 +227,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-
-
-
 
 }); // Fim do 'DOMContentLoaded'
